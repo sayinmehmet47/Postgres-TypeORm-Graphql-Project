@@ -1,0 +1,10 @@
+# application:
+#   name: 'ormgraphql'
+#   project: 'ormgraphql'
+#   organization: 'QoveryCommunity'
+# routers:
+#   - name: 'graphql-api'
+#     routes:
+#       - application_name: 'ormgraphql'
+#         paths:
+#           - '/*'
