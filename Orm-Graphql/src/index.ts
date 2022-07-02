@@ -1,11 +1,9 @@
-import { Photo } from './entity/Photo';
+import express = require('express');
 import 'reflect-metadata';
+import { buildSchema } from 'type-graphql';
 import { HelloResolver } from './resolvers/hello';
 import { ApolloServer, gql } from 'apollo-server-express';
-import express = require('express');
-import { buildSchema } from 'type-graphql';
 import { AppDataSource } from './data-source';
-
 import {
   CreatePhotoResolver,
   DeletePhotoResolver,
@@ -14,6 +12,7 @@ import {
 } from './resolvers/Photo';
 import { PhotoMetaData } from './entity/PhotoMetaData';
 import { AuthorResolver } from './resolvers/Author';
+import { Photo } from './entity/Photo';
 AppDataSource.initialize()
   .then(async () => {
     const app = express();

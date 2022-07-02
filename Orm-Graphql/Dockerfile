@@ -1,11 +1,15 @@
-FROM node:14-alpine as base
-WORKDIR /src
-COPY package*.json ./
+FROM node:14
+
 EXPOSE 3000
 
-FROM base as production
-ENV NODE_ENV=production
-RUN npm ci
-COPY --chown=node:node . ./
-USER node
-CMD ["yarn", "start"]
+WORKDIR /src
+
+RUN npm install i npm@latest -g 
+
+COPY package.json package-lock*.json ./
+
+RUN npm install
+
+COPY . .
+
+CMD ["node", "src/index.ts"]
